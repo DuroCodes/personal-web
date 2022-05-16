@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBookBookmark, faStar } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
-import config from '../config.json';
 import '../css/App.css';
 
 const defaultProps = {
@@ -37,13 +36,8 @@ function Card({
   const [data, setData] = React.useState<State>();
 
   async function getData(tit: string) {
-    const headers = {
-      'Content-Type': 'application/json',
-      Authorization: `token ${config.GITHUB_TOKEN}`,
-    };
-
-    const repoData = await axios.get(`https://api.github.com/repos/durocodes/${tit}`, { headers });
-    const langData = await axios.get(`https://api.github.com/repos/durocodes/${tit}/languages`, { headers });
+    const repoData = await axios.get(`https://api.github.com/repos/durocodes/${tit}`);
+    const langData = await axios.get(`https://api.github.com/repos/durocodes/${tit}/languages`);
     const language = Object.keys(langData)[0];
 
     setData({ language, ...repoData.data });
