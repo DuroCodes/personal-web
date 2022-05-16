@@ -42,8 +42,6 @@ function Card({
       Authorization: `token ${config.GITHUB_TOKEN}`,
     };
 
-    console.log(config.GITHUB_TOKEN);
-
     const repoData = await axios.get(`https://api.github.com/repos/durocodes/${tit}`, { headers });
     const langData = await axios.get(`https://api.github.com/repos/durocodes/${tit}/languages`, { headers });
     const language = Object.keys(langData)[0];
