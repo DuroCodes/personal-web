@@ -25,7 +25,7 @@ export default function App(): JSX.Element {
                 <span className="icon">
                   <FontAwesomeIcon icon={faGithub} />
                 </span>
-                <span>duro</span>
+                <span>durocodes</span>
               </span>
             </a>
             <br />
