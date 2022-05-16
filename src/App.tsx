@@ -7,7 +7,7 @@ import './css/App.css';
 import 'victormono';
 
 export default function App(): JSX.Element {
-  const repos = ['suta', 'suta-docs', 'personal-website'];
+  const repos = ['suta', 'suta-docs'];
   const cards = repos.map((repo) => <Card title={repo} />);
 
   return (
