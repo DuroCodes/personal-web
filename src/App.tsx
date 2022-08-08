@@ -7,7 +7,7 @@ import './css/App.css';
 import 'victormono';
 
 export default function App(): JSX.Element {
-  const repos = ['suta', 'suta-docs'];
+  const repos = ['suta', 'spark', 'advancius'];
   const cards = repos.map((repo) => <Card title={repo} />);
 
   return (
@@ -38,12 +38,12 @@ export default function App(): JSX.Element {
               </span>
             </a>
             <br />
-            <a href="https://suta.tk">
+            <a href="https://bit.ly/spark_handler">
               <span className="icon-text has-text-light py-1">
                 <span className="icon">
                   <FontAwesomeIcon icon={faStar} />
                 </span>
-                <span>suta.tk</span>
+                <span>spark</span>
               </span>
             </a>
             <br />
