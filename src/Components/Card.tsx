@@ -8,7 +8,7 @@ const defaultProps = {
   starred: false,
 };
 
-type Langs = 'TypeScript' | 'JavaScript' | 'HTML' | 'CSS' | 'Java' | 'Python';
+type Language = 'TypeScript' | 'JavaScript' | 'HTML' | 'CSS' | 'Java' | 'Python' | 'Astro';
 
 interface Props {
   title: string;
@@ -18,22 +18,23 @@ interface Props {
 interface State {
   description: string;
   full_name: string;
-  language: Langs;
+  language: Language;
 }
 
 function Card({
   title, starred,
 }: Props): JSX.Element {
-  const colors = {
+  const colors: Record<Language, string> = {
     TypeScript: '#2b7489',
     JavaScript: '#f1e05a',
     HTML: '#e34c26',
     CSS: '#563d7c',
     Java: '#b07219',
     Python: '#3572A5',
+    Astro: '#ec672c',
   };
 
-  const [data, setData] = React.useState<State>();
+  const [data, setData] = React.useState<State>({ description: 'Loading...', full_name: 'Loading', language: 'TypeScript' });
 
   async function getData(tit: string) {
     const repoData = await axios.get(`https://api.github.com/repos/durocodes/${tit}`);
@@ -48,7 +49,7 @@ function Card({
   });
 
   const style = {
-    backgroundColor: colors[data?.language as Langs],
+    backgroundColor: colors[data.language],
   };
 
   return (
